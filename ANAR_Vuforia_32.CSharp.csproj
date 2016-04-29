@@ -65,9 +65,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\RotateVirtualButtonEventHandler.cs" />
-    <Compile Include="Assets\Scripts\RotatingItem.cs" />
-    <Compile Include="Assets\Scripts\SimpleVBEventHandler.cs" />
-    <Compile Include="Assets\Scripts\SoundManager.cs" />
     <Compile Include="Assets\Scripts\UserInterfaceButtons.cs" />
     <Compile Include="Assets\UnityChan\Scripts\CameraController.cs" />
     <Compile Include="Assets\UnityChan\Scripts\FaceUpdate.cs" />
