@@ -83,7 +83,13 @@ namespace Vuforia
                 component.enabled = true;
             }
 
+            if (mTrackableBehaviour.gameObject.GetComponentInChildren<AudioSource>() != null)
+            {
+                mTrackableBehaviour.gameObject.GetComponentInChildren<AudioSource>().Play();
+            }
             Debug.Log("Trackable " + mTrackableBehaviour.TrackableName + " found");
+            Debug.Log("Trackable " + mTrackableBehaviour.gameObject.transform.GetChild(0).tag + " TAG CHILDREN0");
+            Debug.Log("Trackable " + mTrackableBehaviour.gameObject.transform.GetChild(1).tag + " TAG CHILDREN1");
         }
 
 
@@ -104,6 +110,10 @@ namespace Vuforia
                 component.enabled = false;
             }
 
+            if (mTrackableBehaviour.gameObject.GetComponentInChildren<AudioSource>() != null)
+            {
+                mTrackableBehaviour.gameObject.GetComponentInChildren<AudioSource>().Stop();
+            }
             Debug.Log("Trackable " + mTrackableBehaviour.TrackableName + " lost");
         }
 
