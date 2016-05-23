@@ -1,8 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.IO;
+using Vuforia;
 
-public class UserInterfaceButtons : MonoBehaviour {
+public class UserInterfaceButtons : MonoBehaviour, IVirtualButtonEventHandler
+{
 
     private GameObject _modelRupestre;
     private GameObject _mapa;
@@ -14,6 +16,13 @@ public class UserInterfaceButtons : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+
+        // Register with the virtual buttons TrackableBehaviour
+        VirtualButtonBehaviour[] vbs = GetComponentsInChildren<VirtualButtonBehaviour>();
+        for (int i = 0; i < vbs.Length; ++i) {
+            vbs[i].RegisterEventHandler(this);
+        }
+
         _modelRupestre = GameObject.FindWithTag("Model");
         _mapa = GameObject.FindWithTag("Map");
         _mapa.SetActive(false);
@@ -92,5 +101,35 @@ public class UserInterfaceButtons : MonoBehaviour {
     public void StopSoundModel()
     {
         _sonidoModelo.Stop();
+    }
+
+    /// Called when the virtual button has just been pressed:
+    public void OnButtonPressed(VirtualButtonAbstractBehaviour vb) {
+
+        Debug.Log("OnButtonPressed: " + vb.VirtualButtonName);
+
+        // Add the material corresponding to this virtual button
+        // to the active material list:
+        switch (vb.VirtualButtonName)
+        {
+            case "VirtualButton1":
+                //rotationFactor = 30;
+                ShowModel();
+                break;
+
+            case "VirtualButton2":
+                //rotationFactor = 0;
+                ShowMap();
+                break;
+
+            default:
+                throw new UnityException("Button not supported: " + vb.VirtualButtonName);
+                break;
+        }
+    }
+
+    /// Called when the virtual button has just been released:
+    public void OnButtonReleased(VirtualButtonAbstractBehaviour vb) {
+        Debug.Log("OnButtonReleased: " + vb.VirtualButtonName);
     }
 }
