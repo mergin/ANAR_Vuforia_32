@@ -14,6 +14,9 @@ public class UserInterfaceButtons : MonoBehaviour, IVirtualButtonEventHandler
     bool repeatRotateLeft = false;
     bool repeatRotateRight = false;
 
+    public Material mata;
+    private Color targetColor;
+
     // Use this for initialization
     void Start () {
 
@@ -41,6 +44,9 @@ public class UserInterfaceButtons : MonoBehaviour, IVirtualButtonEventHandler
         if (repeatRotateLeft) {
             RotationLeftButton();
         }
+
+        float mettallic = Mathf.PingPong(Time.time, 1.0F);
+        mata.SetFloat("_Metallic", mettallic);
     }
 
     public void CloseAppButton()

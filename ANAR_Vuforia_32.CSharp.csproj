@@ -66,12 +66,6 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\RotateVirtualButtonEventHandler.cs" />
     <Compile Include="Assets\Scripts\UserInterfaceButtons.cs" />
-    <Compile Include="Assets\UnityChan\Scripts\CameraController.cs" />
-    <Compile Include="Assets\UnityChan\Scripts\FaceUpdate.cs" />
-    <Compile Include="Assets\UnityChan\Scripts\IdleChanger.cs" />
-    <Compile Include="Assets\UnityChan\Scripts\SceneLoader.cs" />
-    <Compile Include="Assets\UnityChan\Scripts\ThirdPersonCamera.cs" />
-    <Compile Include="Assets\UnityChan\Scripts\UnityChanControlScriptWithRgidBody.cs" />
     <Compile Include="Assets\Vuforia\Scripts\BackgroundPlaneBehaviour.cs" />
     <Compile Include="Assets\Vuforia\Scripts\CloudRecoBehaviour.cs" />
     <Compile Include="Assets\Vuforia\Scripts\CylinderTargetBehaviour.cs" />
@@ -115,18 +109,6 @@
   <ItemGroup>
     <None Include="Assets\Plugins\Android\AndroidManifest.xml" />
     <None Include="Assets\StreamingAssets\QCAR\ANAR_Vuforia.xml" />
-    <None Include="Assets\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_akarami_blend.shader" />
-    <None Include="Assets\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_eye.shader" />
-    <None Include="Assets\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_eye_blend.shader" />
-    <None Include="Assets\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_eyelash_blend.shader" />
-    <None Include="Assets\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_fuku.shader" />
-    <None Include="Assets\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_fuku_ds.shader" />
-    <None Include="Assets\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_hada.shader" />
-    <None Include="Assets\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_hada_blend.shader" />
-    <None Include="Assets\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_hair.shader" />
-    <None Include="Assets\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_hair_ds.shader" />
-    <None Include="Assets\UnityChan\Stage\Shader\AlphaMask.shader" />
-    <None Include="Assets\UnityChan\license.txt" />
     <None Include="Assets\Vuforia\Editor\Scripts\Vuforia.UnityExtensions.Editor.XML" />
     <None Include="Assets\Vuforia\Editor\WebcamProfiles\profiles.xml" />
     <None Include="Assets\Vuforia\Scripts\Internal\Vuforia.UnityExtensions.XML" />
