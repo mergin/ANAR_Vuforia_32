@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
   <Tracking>
+    <ImageTarget name="modelo20" size="1024.000000 1024.000000" />
+    <ImageTarget name="modelo19" size="1024.000000 1024.000000" />
+    <ImageTarget name="modelo18" size="1024.000000 1024.000000" />
+    <ImageTarget name="modelo17" size="1024.000000 1024.000000" />
+    <ImageTarget name="modelo16" size="1024.000000 1024.000000" />
+    <ImageTarget name="modelo15" size="1024.000000 1024.000000" />
+    <ImageTarget name="modelo14" size="1024.000000 1024.000000" />
+    <ImageTarget name="modelo13" size="1024.000000 1024.000000" />
+    <ImageTarget name="modelo12" size="1024.000000 1024.000000" />
+    <ImageTarget name="modelo11" size="1024.000000 1024.000000" />
+    <ImageTarget name="modelo10" size="1024.000000 1024.000000" />
+    <ImageTarget name="modelo9" size="1024.000000 1024.000000" />
+    <ImageTarget name="modelo8" size="1024.000000 1024.000000" />
+    <ImageTarget name="modelo7" size="1024.000000 1024.000000" />
+    <ImageTarget name="modelo6" size="1024.000000 1024.000000" />
+    <ImageTarget name="modelo5" size="1024.000000 1024.000000" />
     <ImageTarget name="modelo4" size="1024.000000 1024.000000" />
     <ImageTarget name="modelo3" size="1024.000000 1024.000000" />
     <ImageTarget name="modelo2" size="1024.000000 1024.000000" />
