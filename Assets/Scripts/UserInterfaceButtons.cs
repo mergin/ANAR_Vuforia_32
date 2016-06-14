@@ -8,6 +8,8 @@ public class UserInterfaceButtons : MonoBehaviour, IVirtualButtonEventHandler
 
     private GameObject _modelRupestre;
     private GameObject _mapa;
+    private GameObject[] _modelRupestres;
+    private GameObject[] _mapas;
     private AudioSource _sonidoModelo;
     private AudioSource _sonidoMapa;
     public float rotationSpeed = 70.0f;
@@ -17,8 +19,20 @@ public class UserInterfaceButtons : MonoBehaviour, IVirtualButtonEventHandler
     public Material mata;
     private Color targetColor;
 
+    private int NUMBER;
+
     // Use this for initialization
     void Start () {
+
+        /* SET */
+        _modelRupestres = GameObject.FindGameObjectsWithTag("Model");
+        _mapas = GameObject.FindGameObjectsWithTag("Map");
+        NUMBER = _mapas.Length;
+        Debug.Log("NUMBER1: " + NUMBER);
+        foreach (GameObject mapa in _mapas)
+        {
+            mapa.SetActive(false);
+        }
 
         // Register with the virtual buttons TrackableBehaviour
         VirtualButtonBehaviour[] vbs = GetComponentsInChildren<VirtualButtonBehaviour>();
@@ -26,13 +40,9 @@ public class UserInterfaceButtons : MonoBehaviour, IVirtualButtonEventHandler
             vbs[i].RegisterEventHandler(this);
         }
 
-        _modelRupestre = GameObject.FindWithTag("Model");
-        _mapa = GameObject.FindWithTag("Map");
-        _mapa.SetActive(false);
-
         // Argegar archivo de audio a AudioSource usando GetComponent<AudioSource>()
-        _sonidoModelo = _modelRupestre.GetComponentInChildren<AudioSource>();
-        _sonidoMapa = _mapa.GetComponentInChildren<AudioSource>();
+        //_sonidoModelo = _modelRupestre.GetComponentInChildren<AudioSource>();
+        //_sonidoMapa = _mapa.GetComponentInChildren<AudioSource>();
     }
 	
 	// Update is called once per frame
@@ -88,14 +98,34 @@ public class UserInterfaceButtons : MonoBehaviour, IVirtualButtonEventHandler
 
     public void ShowMap()
     {
-        _modelRupestre.SetActive(false);
-        _mapa.SetActive(true);
+        //_modelRupestre.SetActive(false);
+        //_mapa.SetActive(true);
+
+        foreach (GameObject model in _modelRupestres)
+        {
+            model.SetActive(false);
+        }
+        foreach (GameObject mapa in _mapas)
+        {
+            mapa.SetActive(true);
+        }
+        Debug.Log("NUMBER: " + NUMBER);
     }
 
     public void ShowModel()
     {
-        _mapa.SetActive(false);
-        _modelRupestre.SetActive(true);
+        //_mapa.SetActive(false);
+        //_modelRupestre.SetActive(true);
+        foreach (GameObject mapa in _mapas)
+        {
+            mapa.SetActive(false);
+        }
+        foreach (GameObject model in _modelRupestres)
+        {
+            model.SetActive(true);
+        }
+        //Debug.Log("MODEL: " + _modelRupestres);
+        //Debug.Log("MAP: " + _mapas);
     }
 
     public void PlaySoundModel()
