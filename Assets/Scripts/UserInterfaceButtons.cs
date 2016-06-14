@@ -6,33 +6,26 @@ using Vuforia;
 public class UserInterfaceButtons : MonoBehaviour, IVirtualButtonEventHandler
 {
 
-    private GameObject _modelRupestre;
-    private GameObject _mapa;
-    private GameObject[] _modelRupestres;
-    private GameObject[] _mapas;
+    public GameObject _modelRupestre;
+    public GameObject _mapa;
+    //private GameObject[] _modelRupestres;
+    //private GameObject[] _mapas;
     private AudioSource _sonidoModelo;
     private AudioSource _sonidoMapa;
-    public float rotationSpeed = 70.0f;
-    bool repeatRotateLeft = false;
-    bool repeatRotateRight = false;
-
-    public Material mata;
-    private Color targetColor;
-
-    private int NUMBER;
 
     // Use this for initialization
     void Start () {
 
         /* SET */
-        _modelRupestres = GameObject.FindGameObjectsWithTag("Model");
-        _mapas = GameObject.FindGameObjectsWithTag("Map");
-        NUMBER = _mapas.Length;
-        Debug.Log("NUMBER1: " + NUMBER);
+        _mapa.SetActive(false);
+        //_modelRupestres = GameObject.FindGameObjectsWithTag("Model");
+        //_mapas = GameObject.FindGameObjectsWithTag("Map");
+        /*
         foreach (GameObject mapa in _mapas)
         {
             mapa.SetActive(false);
         }
+        */
 
         // Register with the virtual buttons TrackableBehaviour
         VirtualButtonBehaviour[] vbs = GetComponentsInChildren<VirtualButtonBehaviour>();
@@ -47,16 +40,7 @@ public class UserInterfaceButtons : MonoBehaviour, IVirtualButtonEventHandler
 	
 	// Update is called once per frame
 	void Update () {
-        if (repeatRotateRight) {
-            RotationRightButton();
-        }
 
-        if (repeatRotateLeft) {
-            RotationLeftButton();
-        }
-
-        float mettallic = Mathf.PingPong(Time.time, 1.0F);
-        mata.SetFloat("_Metallic", mettallic);
     }
 
     public void CloseAppButton()
@@ -64,43 +48,11 @@ public class UserInterfaceButtons : MonoBehaviour, IVirtualButtonEventHandler
         Application.Quit();
     }
 
-    public void RotationRightButton()
-    {
-        _modelRupestre.transform.Rotate(0, -rotationSpeed * Time.deltaTime, 0);
-        _mapa.transform.Rotate(0, -rotationSpeed * Time.deltaTime, 0);
-    }
-
-    public void RotationLeftButton()
-    {
-        _modelRupestre.transform.Rotate(0, rotationSpeed * Time.deltaTime, 0);
-        _mapa.transform.Rotate(0, rotationSpeed * Time.deltaTime, 0);
-    }
-
-    public void RotationRightButtonRepeat()
-    {
-        repeatRotateRight = true;
-    }
-
-    public void RotationLeftButtonRepeat()
-    {
-        repeatRotateLeft = true;
-    }
-
-    public void RotateLeftButtonOff()
-    {
-        repeatRotateLeft = false;
-    }
-
-    public void RotateRightButtonOff()
-    {
-        repeatRotateRight = false;
-    }
-
     public void ShowMap()
     {
-        //_modelRupestre.SetActive(false);
-        //_mapa.SetActive(true);
-
+        _modelRupestre.SetActive(false);
+        _mapa.SetActive(true);
+        /*
         foreach (GameObject model in _modelRupestres)
         {
             model.SetActive(false);
@@ -109,13 +61,14 @@ public class UserInterfaceButtons : MonoBehaviour, IVirtualButtonEventHandler
         {
             mapa.SetActive(true);
         }
-        Debug.Log("NUMBER: " + NUMBER);
+        */
     }
 
     public void ShowModel()
     {
-        //_mapa.SetActive(false);
-        //_modelRupestre.SetActive(true);
+        _mapa.SetActive(false);
+        _modelRupestre.SetActive(true);
+        /*
         foreach (GameObject mapa in _mapas)
         {
             mapa.SetActive(false);
@@ -124,8 +77,7 @@ public class UserInterfaceButtons : MonoBehaviour, IVirtualButtonEventHandler
         {
             model.SetActive(true);
         }
-        //Debug.Log("MODEL: " + _modelRupestres);
-        //Debug.Log("MAP: " + _mapas);
+        */
     }
 
     public void PlaySoundModel()
