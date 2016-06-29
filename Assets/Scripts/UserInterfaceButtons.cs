@@ -8,8 +8,7 @@ public class UserInterfaceButtons : MonoBehaviour, IVirtualButtonEventHandler
 
     public GameObject _modelRupestre;
     public GameObject _mapa;
-    //private GameObject[] _modelRupestres;
-    //private GameObject[] _mapas;
+    public GameObject _pregunta;
     private AudioSource _sonidoModelo;
     private AudioSource _sonidoMapa;
 
@@ -18,14 +17,7 @@ public class UserInterfaceButtons : MonoBehaviour, IVirtualButtonEventHandler
 
         /* SET */
         _mapa.SetActive(false);
-        //_modelRupestres = GameObject.FindGameObjectsWithTag("Model");
-        //_mapas = GameObject.FindGameObjectsWithTag("Map");
-        /*
-        foreach (GameObject mapa in _mapas)
-        {
-            mapa.SetActive(false);
-        }
-        */
+        _pregunta.SetActive(false);
 
         // Register with the virtual buttons TrackableBehaviour
         VirtualButtonBehaviour[] vbs = GetComponentsInChildren<VirtualButtonBehaviour>();
@@ -51,33 +43,22 @@ public class UserInterfaceButtons : MonoBehaviour, IVirtualButtonEventHandler
     public void ShowMap()
     {
         _modelRupestre.SetActive(false);
+        _pregunta.SetActive(false);
         _mapa.SetActive(true);
-        /*
-        foreach (GameObject model in _modelRupestres)
-        {
-            model.SetActive(false);
-        }
-        foreach (GameObject mapa in _mapas)
-        {
-            mapa.SetActive(true);
-        }
-        */
     }
 
     public void ShowModel()
     {
         _mapa.SetActive(false);
+        _pregunta.SetActive(false);
         _modelRupestre.SetActive(true);
-        /*
-        foreach (GameObject mapa in _mapas)
-        {
-            mapa.SetActive(false);
-        }
-        foreach (GameObject model in _modelRupestres)
-        {
-            model.SetActive(true);
-        }
-        */
+    }
+
+    public void ShowQuestion()
+    {
+        _mapa.SetActive(false);
+        _modelRupestre.SetActive(false);
+        _pregunta.SetActive(true);
     }
 
     public void PlaySoundModel()
@@ -101,13 +82,15 @@ public class UserInterfaceButtons : MonoBehaviour, IVirtualButtonEventHandler
         switch (vb.VirtualButtonName)
         {
             case "VirtualButton1":
-                //rotationFactor = 30;
                 ShowModel();
                 break;
 
             case "VirtualButton2":
-                //rotationFactor = 0;
                 ShowMap();
+                break;
+
+            case "VirtualButton3":
+                ShowQuestion();
                 break;
 
             default:
