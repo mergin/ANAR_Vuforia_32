@@ -25,7 +25,7 @@ namespace Vuforia
                 unityPlayer = new AndroidUnityPlayer();
             else if (Application.platform == RuntimePlatform.IPhonePlayer)
                 unityPlayer = new IOSUnityPlayer();
-            else if (VuforiaRuntimeUtilities.IsPlayMode())
+            else 
                 unityPlayer = new PlayModeUnityPlayer();
 
             SetUnityPlayerImplementation(unityPlayer);
